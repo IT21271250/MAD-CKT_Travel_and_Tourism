@@ -1,6 +1,8 @@
 package com.example.mad.models
 
-data class EmployeeModel (
+import android.icu.util.CurrencyAmount
+
+data class EmployeeModel(
     var empId:String? = null,
     var empName: String? = null,
     var empAmount: String? = null,

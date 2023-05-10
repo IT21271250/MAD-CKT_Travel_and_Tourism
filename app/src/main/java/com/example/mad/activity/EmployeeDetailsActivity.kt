@@ -2,8 +2,6 @@ package com.example.mad.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.security.identity.AccessControlProfileId
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -13,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mad.R
 import com.example.mad.models.EmployeeModel
 import com.google.firebase.database.FirebaseDatabase
-import org.w3c.dom.Comment
 
 class EmployeeDetailsActivity : AppCompatActivity() {
 
@@ -100,7 +97,7 @@ class EmployeeDetailsActivity : AppCompatActivity() {
         etEmpAmount.setText(intent.getStringExtra("empAmount").toString())
         etEmpComment.setText(intent.getStringExtra("empComment").toString())
 
-        mDialog.setTitle("Updating $empName Record")
+        mDialog.setTitle("Updating $empName Donation Details")
 
         val alertDialog = mDialog.create()
         alertDialog.show()
@@ -113,7 +110,7 @@ class EmployeeDetailsActivity : AppCompatActivity() {
                 etEmpComment.text.toString()
             )
 
-            Toast.makeText(applicationContext, "New Data Updated", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, "New Donation Data Updated", Toast.LENGTH_LONG).show()
 
             //setting updated data to our textviews
             tvEmpName.text = etEmpName.text.toString()
@@ -130,9 +127,14 @@ class EmployeeDetailsActivity : AppCompatActivity() {
         amount: String,
         comment: String
     ) {
-        val dbRef = FirebaseDatabase.getInstance().getReference("Employees").child(id)
-        val empInfo = EmployeeModel(id, name, amount, comment)
-        dbRef.setValue(empInfo)
+        if (amount.isNotEmpty() && amount.toDoubleOrNull() != null) {
+            val dbRef = FirebaseDatabase.getInstance().getReference("Employees").child(id)
+            val empInfo = EmployeeModel(id, name, amount, comment)
+            dbRef.setValue(empInfo)
+        }else{
+            // Amount is either empty or not a valid number
+            Toast.makeText(applicationContext, "Please enter a valid amount", Toast.LENGTH_LONG).show()
+        }
 
     }
 }

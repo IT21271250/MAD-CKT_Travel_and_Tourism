@@ -4,59 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img"
     android:padding="16dp"
     tools:context=".activity.InsertionActivity">
 
     <EditText
         android:id="@+id/etEmpName"
-        android:layout_width="0dp"
+        android:layout_width="379dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Enter Your Name"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
         android:id="@+id/etEmpAmount"
-        android:layout_width="0dp"
+        android:layout_width="379dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
+        android:hint="Donate Amount in $"
         android:inputType="textPersonName"
-        android:hint="Donate Amount"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:minHeight="48dp"
+        android:textAlignment="gravity"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmpName"/>
+        app:layout_constraintTop_toBottomOf="@+id/etEmpName" />
 
     <EditText
         android:id="@+id/etEmpComment"
-        android:layout_width="0dp"
+        android:layout_width="379dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="184dp"
+        android:layout_marginStart="16dp"
         android:ems="10"
         android:hint="Enter Your Comment"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:minHeight="48dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmpAmount"
+        app:layout_constraintVertical_bias="0.088" />
 
     <Button
         android:id="@+id/btnDonate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
-        android:layout_marginBottom="364dp"
+        android:backgroundTint="#4C3737"
         android:text="Donate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDonate"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmpComment"
+        app:layout_constraintVertical_bias="0.209" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="346dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="52dp"
+        android:text="Insert Donation"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textColorHighlight="#A63232"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

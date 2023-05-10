@@ -47,7 +47,7 @@ class InsertionActivity : AppCompatActivity() {
             }
 
             if(empAmount.isEmpty()) {
-                etEmpName.error = "You Doesn't donate"
+                etEmpAmount.error = "You Doesn't enter donate amount"
             }
 
             if(empComment.isEmpty()){
@@ -60,7 +60,7 @@ class InsertionActivity : AppCompatActivity() {
 
             dbRef.child(empId).setValue(employee)
                 .addOnCompleteListener{
-                    Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Donate Data inserted successfully", Toast.LENGTH_LONG).show()
 
                     etEmpName.text.clear()
                     etEmpAmount.text.clear()

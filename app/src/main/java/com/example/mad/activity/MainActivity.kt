@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var btnInsertData: Button
     private lateinit var btnFetchData: Button
+    private lateinit var btnAbout:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         btnInsertData = findViewById(R.id.btnInsertData)
         btnFetchData = findViewById(R.id.btnFetchData)
+        btnAbout = findViewById(R.id.btnAbout)
 
         btnInsertData.setOnClickListener{
             val intent = Intent (this, InsertionActivity::class.java)
@@ -28,6 +30,11 @@ class MainActivity : AppCompatActivity() {
 
         btnFetchData.setOnClickListener{
             val intent = Intent (this, FetchingActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnAbout.setOnClickListener {
+            val intent = Intent(this, AboutActivity::class.java)
             startActivity(intent)
         }
 

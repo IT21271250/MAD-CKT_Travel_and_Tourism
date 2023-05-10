@@ -23,7 +23,7 @@ class FetchingActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fetching)
 
-        empRecyclerView = findViewById(R.id.rvEmp)
+        empRecyclerView = findViewById(R.id.rvDrugs)
         empRecyclerView.layoutManager = LinearLayoutManager(this)
         empRecyclerView.setHasFixedSize(true)
         tvLoadingData = findViewById(R.id.tvLoadingData)
