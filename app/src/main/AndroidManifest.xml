@@ -11,6 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAD"
         tools:targetApi="31">
+
+        <activity android:name=".activity.InsertionActivity" />
+        <activity android:name=".activity.FetchingActivity" />
+        <activity
+            android:name=".activity.EmployeeDetailsActivity">
+        </activity>
+
+
         <activity
             android:name=".activity.MainActivity"
             android:exported="true">
