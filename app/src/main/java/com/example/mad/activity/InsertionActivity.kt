@@ -44,16 +44,20 @@ class InsertionActivity : AppCompatActivity() {
 
             if(empName.isEmpty()){
                 etEmpName.error = "Please enter Name"
+                Toast.makeText(this, "You doesn't enter a Name", Toast.LENGTH_SHORT).show()
                 return
             }
 
             if(empAmount.isEmpty()) {
-                etEmpAmount.error = "You Doesn't enter donate amount"
+                etEmpAmount.error = "Enter donate amount"
+                Toast.makeText(this, "You doesn't enter Amount", Toast.LENGTH_SHORT).show()
                 return
             }
 
             if(empComment.isEmpty()){
                 etEmpComment.error = "Please Enter any comment"
+                Toast.makeText(this, "You doesn't enter a Comment", Toast.LENGTH_SHORT).show()
+
                 return
             }
 
