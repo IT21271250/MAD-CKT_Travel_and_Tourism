@@ -44,15 +44,34 @@ class InsertionActivity : AppCompatActivity() {
 
             if(empName.isEmpty()){
                 etEmpName.error = "Please enter Name"
+                return
             }
 
             if(empAmount.isEmpty()) {
                 etEmpAmount.error = "You Doesn't enter donate amount"
+                return
             }
 
             if(empComment.isEmpty()){
                 etEmpComment.error = "Please Enter any comment"
+                return
             }
+
+            val amount: Double
+            try {
+                amount = empAmount.toDouble()
+            } catch (e: NumberFormatException) {
+                etEmpAmount.error = "Invalid amount"
+                Toast.makeText(this, "Invalid amount", Toast.LENGTH_SHORT).show()
+                return
+            }
+
+            if (amount <= 0) {
+                etEmpAmount.error = "Amount must be greater than 0"
+                Toast.makeText(this, "Amount must be greater than 0", Toast.LENGTH_SHORT).show()
+                return
+            }
+
 
             val empId = dbRef.push().key!!
 
