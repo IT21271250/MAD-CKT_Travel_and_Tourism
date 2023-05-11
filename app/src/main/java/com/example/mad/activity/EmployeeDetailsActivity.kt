@@ -42,9 +42,20 @@ class EmployeeDetailsActivity : AppCompatActivity() {
         }
     }
 
-    private fun deleteRecord(
-        id: String
-    ){
+    private fun deleteRecord(id: String) {
+        val confirmationDialog = AlertDialog.Builder(this)
+            .setTitle("Confirmation")
+            .setMessage("Are you sure you want to delete this record?")
+            .setPositiveButton("Delete") { _, _ ->
+                performDeleteRecord(id)
+            }
+            .setNegativeButton("Cancel", null)
+            .create()
+
+        confirmationDialog.show()
+    }
+
+    private fun performDeleteRecord(id: String) {
         val dbRef = FirebaseDatabase.getInstance().getReference("Employees").child(id)
         val mTask = dbRef.removeValue()
 
@@ -54,7 +65,7 @@ class EmployeeDetailsActivity : AppCompatActivity() {
             val intent = Intent(this, FetchingActivity::class.java)
             finish()
             startActivity(intent)
-        }.addOnFailureListener{ error ->
+        }.addOnFailureListener { error ->
             Toast.makeText(this, "Deleting Err ${error.message}", Toast.LENGTH_LONG).show()
         }
     }
